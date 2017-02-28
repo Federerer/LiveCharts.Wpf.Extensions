@@ -1,0 +1,29 @@
+﻿<Window x:Class="LiveCharts.Wpf.Extensions.Sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LiveCharts.Wpf.Extensions.Sample"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:behaviors="clr-namespace:LiveCharts.Wpf.Extensions.Behaviors;assembly=LiveCharts.Wpf.Extensions"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <UniformGrid Columns="1">
+        <wpf:CartesianChart DisableAnimations="True" Zoom="X" DataTooltip="{x:Null}">
+            <i:Interaction.Behaviors>
+                <behaviors:ChartExtensionsBehavior SeriesSource="{Binding Data}">
+                    <behaviors:ChartExtensionsBehavior.SeriesTemplate>
+                        <DataTemplate DataType="wpf:Series">
+                            <wpf:LineSeries Fill="Transparent" PointGeometry="{x:Null}">
+                                <i:Interaction.Behaviors>
+                                    <behaviors:SeriesExtensionsBehavior ValuesSource="{Binding}"/>
+                                </i:Interaction.Behaviors>
+                            </wpf:LineSeries>
+                        </DataTemplate>
+                    </behaviors:ChartExtensionsBehavior.SeriesTemplate>
+                </behaviors:ChartExtensionsBehavior>
+            </i:Interaction.Behaviors>
+        </wpf:CartesianChart>
+    </UniformGrid>
+</Window>

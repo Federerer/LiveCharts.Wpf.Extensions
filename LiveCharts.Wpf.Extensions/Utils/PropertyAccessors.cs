@@ -31,6 +31,7 @@ namespace LiveCharts.Wpf.Extensions.Utils
             {
                 return null;
             }
+
             var helper = typeof(PropertyAccessorsHelper<,,>).MakeGenericType(type, property.PropertyType, typeof(T));
 
             var method = helper.GetMethod(nameof(PropertyAccessorsHelper<object, object, object>.CreateGetterInternal), BindingFlags.NonPublic | BindingFlags.Static);
@@ -51,7 +52,7 @@ namespace LiveCharts.Wpf.Extensions.Utils
         internal static Func<object, TReturn> CreateGetterInternal(PropertyInfo property)
         {
             var info = property.GetGetMethod();
-            if (info.DeclaringType.IsValueType)
+            if (info.DeclaringType != null && info.DeclaringType.IsValueType)
             {
                 var g = (RefFunc)Delegate.CreateDelegate(typeof(RefFunc), info);
                 return o =>

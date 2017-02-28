@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts.Wpf.Extensions",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts.Wpf.Extensions.Tests", "LiveCharts.Wpf.Extensions.Tests\LiveCharts.Wpf.Extensions.Tests.csproj", "{8B4CFD9F-0B92-43C6-8F8F-CF87DAA6BA60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts.Wpf.Extensions.Sample", "LiveCharts.Wpf.Extensions.Sample\LiveCharts.Wpf.Extensions.Sample.csproj", "{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,16 @@ Global
 		{8B4CFD9F-0B92-43C6-8F8F-CF87DAA6BA60}.Release 4.6.1|Any CPU.Build.0 = Release|Any CPU
 		{8B4CFD9F-0B92-43C6-8F8F-CF87DAA6BA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B4CFD9F-0B92-43C6-8F8F-CF87DAA6BA60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release 4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release 4.0|Any CPU.Build.0 = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release 4.5|Any CPU.ActiveCfg = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release 4.5|Any CPU.Build.0 = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release 4.6.1|Any CPU.ActiveCfg = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release 4.6.1|Any CPU.Build.0 = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509B6DA3-5DC9-4369-ACC5-FB89BCDA78B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
