@@ -9,7 +9,8 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <UniformGrid Columns="1">
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" Content="New data" Click="Button_Click" />
         <wpf:CartesianChart DisableAnimations="True" Zoom="X" DataTooltip="{x:Null}">
             <i:Interaction.Behaviors>
                 <behaviors:ChartExtensionsBehavior SeriesSource="{Binding Data}">
@@ -17,7 +18,7 @@
                         <DataTemplate DataType="wpf:Series">
                             <wpf:LineSeries Fill="Transparent" PointGeometry="{x:Null}">
                                 <i:Interaction.Behaviors>
-                                    <behaviors:SeriesExtensionsBehavior ValuesSource="{Binding}"/>
+                                    <behaviors:SeriesExtensionsBehavior ValuesSource="{Binding}" XMember="TimeStamp" YMember="Value"/>
                                 </i:Interaction.Behaviors>
                             </wpf:LineSeries>
                         </DataTemplate>
@@ -25,5 +26,5 @@
                 </behaviors:ChartExtensionsBehavior>
             </i:Interaction.Behaviors>
         </wpf:CartesianChart>
-    </UniformGrid>
+    </DockPanel>
 </Window>

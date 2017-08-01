@@ -29,9 +29,9 @@ namespace LiveCharts.Wpf.Extensions.Behaviors
         private Type _dataType;
         private Type _pointType;
 
-        private Func<object, double> _xGetter;
+        private Func<object, object> _xGetter;
 
-        private Func<object, double> _yGetter;
+        private Func<object, object> _yGetter;
 
         public string XMember
         {
@@ -138,14 +138,24 @@ namespace LiveCharts.Wpf.Extensions.Behaviors
                     {
                         if (_xGetter == null)
                         {
-                            _xGetter = PropertyAccessors.CreateGetter<double>(XMember, val);
+                            _xGetter = PropertyAccessors.CreateGetter<object>(XMember, val.Value);
 
                             if (_xGetter == null)
                             {
                                 throw new Exception();
                             }
                         }
-                        return _xGetter(val.Value);
+
+                        var res = _xGetter(val.Value);
+
+                        if (res is DateTime)
+                        {
+                            return ((DateTime)res).ToUniversalTime()
+                            .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                            .TotalMilliseconds;
+                        }
+
+                        return Convert.ToDouble(res);
                     }
                     return index;
                 });
@@ -157,14 +167,14 @@ namespace LiveCharts.Wpf.Extensions.Behaviors
                     {
                         if (_yGetter == null)
                         {
-                            _yGetter = PropertyAccessors.CreateGetter<double>(YMember, val);
+                            _yGetter = PropertyAccessors.CreateGetter<object>(YMember, val.Value);
 
                             if (_yGetter == null)
                             {
                                 throw new Exception();
                             }
                         }
-                        return _yGetter(val.Value);
+                        return Convert.ToDouble(_yGetter(val.Value));
                     }
                     return Convert.ToDouble(val.Value);
                 });
